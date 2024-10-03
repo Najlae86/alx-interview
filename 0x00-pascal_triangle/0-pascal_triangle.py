@@ -1,25 +1,27 @@
 #!/usr/bin/python3
+"""Module with one function pascal_triangle"""
+
+
 def pascal_triangle(n):
-  """
-  This function generates Pascal's triangle up to n rows.
+    """Function to print the pascal triangle"""
+    if n <= 0:
+        return []
+    myarray = []
+    i = 0
+    while i < n:
+        if i == 0:
+            myarray.append([1])
+        elif i == 1:
+            myarray.append([1, 1])
+        else:
+            sublist = []
+            for index in range(i + 1):
+                if index == 0 or index == i:
+                    sublist.append(1)
+                else:
+                    sublist.append(myarray[i-1][index]
+                                   + myarray[i-1][index - 1])
+            myarray.append(sublist)
+        i += 1
 
-  Args:
-      n: An integer representing the number of rows in the triangle.
-
-  Returns:
-      A list of lists containing the values of Pascal's triangle.
-  """
-  if n <= 0:
-    return []
-
-  triangle = [[1]]
-
-  for i in range(1, n):
-    next_row = [1]
-    for j in range(1, i):
-      prev_row = triangle[i-1]
-      next_row.append(prev_row[j-1] + prev_row[j])
-    next_row.append(1)
-    triangle.append(next_row)
-
-  return triangle
+    return myarray
