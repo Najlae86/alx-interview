@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+""" lockboxes module"""
+
+
 def canUnlockAll(boxes):
+    """canUnlockAll: determines if all the boxes can be opened by the provided keys.
+    """
     n = len(boxes)
     opened_boxes = set([0])  # Start with the first box opened
     stack = [0]  # Start exploring from the first box
