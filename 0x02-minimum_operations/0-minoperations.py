@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def minOperations(n):
   """
   Calculates the minimum number of operations to reach n characters with only Copy All and Paste operations.
